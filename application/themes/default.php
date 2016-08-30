@@ -35,14 +35,15 @@
     </head>
     <body>
         <div class="navbar-fixed">
-            <nav class="deep-orange accent-3">
+            <nav class="grey darken-3">
             <div class="nav-wrapper">
-                <a href="<?php echo base_url(); ?>" class="brand-logo">Loca'Gestion</a>
-                <ul class="right hide-on-med-and-down">
+                <a href="<?php echo base_url(); ?>" class="brand-logo center"><img src="<?php echo img_url("logo/porn_addicted.png"); ?>" alt="Porn Addicted logo" class="logo"/></a>
+                <ul class="left hide-on-med-and-down">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Catégories</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Inscription</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Connexion</a></li>
                     <?php else: ?>
                         <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
                         <li><a class='dropdown NOTIFICATIONS' data-beloworigin="true" href='#' data-activates='notifications-dropdown'><i class="material-icons">notifications</i></a></li>
@@ -76,6 +77,17 @@
                         <li><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons">power_settings_new</i></a></li>
                     <?php endif; ?>
                 </ul>
+                <ul class="right hide-me-on-med-and-down">
+                    <div class="nav-wrapper" id="search-bar">
+                        <form>
+                            <div class="input-field">
+                            <input id="search" type="search" required>
+                            <label for="search"><i class="material-icons">search</i></label>
+                            <i class="material-icons">close</i>
+                            </div>
+                        </form>
+                    </div>
+                </ul>
                 <ul id="slide-out" class="side-nav">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
@@ -98,47 +110,6 @@
         </div>
         
         <div class="row" id="left-sidebar-row">
-
-            <div id="left-navbar" class="col s2"style="overflow:auto"> <!-- Note that "m4 l3" was added -->
-                <ul>
-                    <?php if(!$utilisateurCourant->estAuthentifie()): ?>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url(); ?>"><span><i class="material-icons left">store</i><span>Accueil</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
-                    <?php else: ?>
-                    <li class="user-details cyan darken-2" style="height: 97px!important;">
-                        <div class="row">
-                            <div class="col col s4 m4 l4">
-                                <img src="<?php echo img_url("avatar.jpg"); ?>" alt="" class="circle responsive-img valign profile-image">
-                            </div>
-                            <div class="col col s8 m8 l8">
-                                
-                                <a class="btn-flat dropdown-button waves-effect waves-light white-text profile-btn" id="name-left" href="#" data-activates="profile-dropdown"><i class="material-icons left">arrow_drop_down</i><?php echo $utilisateurCourant->getPrenom()." ".$utilisateurCourant->getNom(); ?></a>
-                                <ul id="profile-dropdown" class="dropdown-content" style="width: 127px; position: absolute; top: 57px; left: 101.234375px; opacity: 1; display: none;">
-                                    <li><a href="#"><i class="material-icons">account_circle</i> Mon profil</a>
-                                    </li>
-                                    <li><a href="#"><i class="material-icons">settings</i> Paramètres</a>
-                                    </li>
-                                    <li><a href="#"><i class="material-icons">help</i> Aide</a>
-                                    </li>
-                                    <li><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons">power_settings_new</i> Déconnexion</a>
-                                    </li>
-                                </ul>
-                                <p class="user-roal"><?php echo $utilisateurCourant->getRole(); ?></p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url("tableau_de_bord"); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."locataires"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."locations"; ?>"><i class="material-icons left">business</i> Locations</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i> Etat des lieux</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">query_builder</i> Rendez-vous</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Interventions</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">textsms</i> Messages</a></li>
-                    <li class="waves-effect waves-light"><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Calculatrice</a></li>
-                    <?php endif; ?>
-                </ul>
-            </div>
             
             <div class="col s10" id="main-container"> <!-- Note that "m8 l9" was added -->
                 <?php foreach($tabFlashMessage as $flashDataMessage): ?>
@@ -174,7 +145,7 @@
             $(".button-collapse").sideNav();
         </script>
         
-        <footer class="page-footer deep-orange accent-3">
+        <footer class="page-footer grey darken-3">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">

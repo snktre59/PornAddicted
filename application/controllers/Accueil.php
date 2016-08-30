@@ -7,7 +7,7 @@ class Accueil extends CI_Controller
 	{
 		
 		// Définition du titre de la page
-		$this->layout->set_titre("Loca'Gestion - Gérez votre contrat que vous soyez propriétaire ou locataire !");
+		$this->layout->set_titre("Porn Addicted");
 		
 		//Définition de la meta-description
 		$this->layout->set_meta_description("Retrouvez les dernières actualités du groupe, les prochains évènements et bien plus encore !");
