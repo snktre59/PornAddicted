@@ -30,3 +30,21 @@ function toastModalMessage(type, message, delay){
     '<span aria-hidden="true">×</span></button></div>').find('#card-alert').delay(delay).fadeOut();
 }
 
+$('#search').focusin(function () {
+    alert("lol");
+    $('#search').toggleClass('extend');
+});
+
+$('#search').on('focus', function(){
+    $(this).animate({
+      width: '400px'
+    }, 400, function(){
+      // callback function
+    });
+    $(icon2).animate({
+      right: '10px'
+    }, 400, function(){
+      // callback function
+    });
+});
+

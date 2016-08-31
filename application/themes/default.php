@@ -37,13 +37,13 @@
         <div class="navbar-fixed">
             <nav class="grey darken-3">
             <div class="nav-wrapper">
-                <a href="<?php echo base_url(); ?>" class="brand-logo center"><img src="<?php echo img_url("logo/porn_addicted.png"); ?>" alt="Porn Addicted logo" class="logo"/></a>
+                <a href="<?php echo base_url(); ?>" class="brand-logo center"><img src="<?php echo img_url("logo/porn_addicted.png"); ?>" alt="Porn Addicted logo" class="logo" onmouseover="this.src='<?php echo img_url("logo/porn_addicted_hover.png"); ?>'" onmouseout="this.src='<?php echo img_url("logo/porn_addicted.png"); ?>'"/></a>
                 <ul class="left hide-on-med-and-down">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Catégories</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Inscription</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Connexion</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">stars</i>Mieux notées</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">videocam</i>Les + vues</a></li>
                     <?php else: ?>
                         <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
                         <li><a class='dropdown NOTIFICATIONS' data-beloworigin="true" href='#' data-activates='notifications-dropdown'><i class="material-icons">notifications</i></a></li>
@@ -91,8 +91,9 @@
                 <ul id="slide-out" class="side-nav">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i>Espace Propriétaire</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i>Espace Locataire</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">stars</i>Mieux notées</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">videocam</i>Les + vues</a></li>
                     <?php else: ?>
                         <li><a href="<?php echo base_url("tableau_de_bord"); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
                         <li><a href="<?php echo base_url()."locataires"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
