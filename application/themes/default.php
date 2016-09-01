@@ -112,7 +112,7 @@
         
         <div class="row" id="left-sidebar-row">
             
-            <div class="col s10" id="main-container"> <!-- Note that "m8 l9" was added -->
+            <div class="col s12" id="main-container"> <!-- Note that "m8 l9" was added -->
                 <?php foreach($tabFlashMessage as $flashDataMessage): ?>
                     <div id="card-alert" class="card <?php echo $flashDataMessage["statut"]; ?>">
                       <div class="card-content white-text">
