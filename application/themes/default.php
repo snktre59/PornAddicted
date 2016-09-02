@@ -37,7 +37,7 @@
         <div class="navbar-fixed">
             <nav class="grey darken-3">
             <div class="nav-wrapper">
-                <a href="<?php echo base_url(); ?>" class="brand-logo center"><img src="<?php echo img_url("logo/porn_addicted.png"); ?>" alt="Porn Addicted logo" class="logo" onmouseover="this.src='<?php echo img_url("logo/porn_addicted_hover.png"); ?>'" onmouseout="this.src='<?php echo img_url("logo/porn_addicted.png"); ?>'"/></a>
+                <a href="<?php echo base_url(); ?>" class="brand-logo center"><!--<img src="<?php echo img_url("logo/porn_addicted.png"); ?>" alt="Porn Addicted logo" class="logo" onmouseover="this.src='<?php echo img_url("logo/porn_addicted_hover.png"); ?>'" onmouseout="this.src='<?php echo img_url("logo/porn_addicted.png"); ?>'"/> --></a>
                 <ul class="left hide-on-med-and-down">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
@@ -78,7 +78,8 @@
                     <?php endif; ?>
                 </ul>
                 <ul class="right hide-me-on-med-and-down">
-                    <div class="nav-wrapper" id="search-bar">
+                    <li><a href="sass.html"><i class="material-icons">recent_actors</i></a></li>
+                    <li><div class="nav-wrapper" id="search-bar">
                         <form>
                             <div class="input-field">
                             <input id="search" type="search" required>
@@ -86,7 +87,7 @@
                             <i class="material-icons">close</i>
                             </div>
                         </form>
-                    </div>
+                    </div></li>
                 </ul>
                 <ul id="slide-out" class="side-nav">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
