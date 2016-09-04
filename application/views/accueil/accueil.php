@@ -3,7 +3,7 @@
         <div class="card">
             <div class="card-image">
               <img src="<?php echo img_url("logo.png"); ?>">
-              <span class="card-title grey darken-3 rose bold card-title-home">Jeune soubrette</span>
+              <span class="card-title grey darken-3 rose bold card-title-home">Titre de la vidéo</span>
             </div>
             <div class="card-conten grey darken-3 rose">
               <p class="card-description">I am a very simple card. I am good at containing small bits of information.

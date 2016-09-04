@@ -100,6 +100,10 @@ class Utilisateurs extends CI_Controller {
 		
 		//Chargement des ressources JAVASCRIPT
 		$this->layout->ajouter_js("utilisateurs/inscription");
+
+		//Chargement des ressources CSS
+		$this->layout->ajouter_css("passwordChecker");
+		$this->layout->ajouter_css("utilisateurs/inscription");
 		
 		// Définition du titre de la page
 		$this->layout->set_titre("Loca' Gestion | Inscription");
@@ -178,7 +182,7 @@ class Utilisateurs extends CI_Controller {
 		else
 		{
 			// Affichage
-			$this->layout->blank_view('utilisateurs/inscription');
+			$this->layout->view('utilisateurs/inscription');
 		}
 	}
 	

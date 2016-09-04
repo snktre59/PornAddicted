@@ -1,23 +1,9 @@
-
-$(".NOTIFICATIONS").dropdown({
-  inDuration:300,
-  outDuration:225,
-  constrain_width:!1,
-  hover:!0,
-  gutter:0,
-  belowOrigin:1
-})
-
-$('.profile-btn').dropdown({
-      inDuration:300,
-      outDuration:225,
-      constrain_width:true,
-      hover:false,
-      gutter:0,
-      belowOrigin:!0
+$('.dropdown').dropdown({
+      inDuration: 300,
+      outDuration: 225,
+      constrain_width: 1, // Does not change width of dropdown to that of the activator
+      gutter: 0, // Spacing from edge
+      hover:!0,
+      belowOrigin: true, // Displays dropdown below the button
     }
-  );
-  
-  $("#profile-dropdown").css("width", "168px");
-  
-  $('.fixed-action-btn').openFAB();
+);

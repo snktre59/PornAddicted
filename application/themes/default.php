@@ -78,7 +78,13 @@
                     <?php endif; ?>
                 </ul>
                 <ul class="right hide-me-on-med-and-down">
-                    <li><a href="sass.html"><i class="material-icons">recent_actors</i></a></li>
+                    <li><a href="#" class="dropdown" data-activates='login'><i class="material-icons">recent_actors</i></a></li>
+
+                        <!-- Dropdown Structure -->
+                        <ul id='login' class='dropdown-content'>
+                            <li class="grey darken-3"><a href="<?php echo base_url("utilisateurs/connexion"); ?>"><i class="material-icons left">person</i> Se connecter</a></li>
+                            <li class="grey darken-3"><a href="<?php echo base_url("utilisateurs/inscription"); ?>"><i class="material-icons left">person_add</i> S'inscrire</a></li>
+                        </ul>
                     <li><div class="nav-wrapper" id="search-bar">
                         <form>
                             <div class="input-field">
@@ -123,17 +129,6 @@
                 <?php endforeach; ?>
                 <?php echo $output; ?>
                 
-                <div class="fixed-action-btn" style="bottom: 45px; right: 24px;">
-                    <a class="btn-floating btn-large red">
-                    <i class="large material-icons">mode_edit</i>
-                    </a>
-                    <ul>
-                    <li><a class="btn-floating red tooltipped" data-position="left" data-delay="50" data-tooltip="Tableau de bord"><i class="material-icons">insert_chart</i></a></li>
-                    <li><a class="btn-floating yellow darken-1 tooltipped" data-position="left" data-delay="50" data-tooltip="Messages"><i class="material-icons">question_answer</i></a></li>
-                    <li><a class="btn-floating green tooltipped" data-position="left" data-delay="50" data-tooltip="Rendez-vous"><i class="material-icons">today</i></a></li>
-                    <li><a class="btn-floating blue tooltipped" data-position="left" data-delay="50" data-tooltip="Mes locataires"><i class="material-icons">group</i></a></li>
-                    </ul>
-                </div>
             </div>
         </div>
         

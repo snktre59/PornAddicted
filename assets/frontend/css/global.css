@@ -5,6 +5,14 @@ nav ul a:hover {
     background-color: #ec567c;
 }
 
+.btn-rose {
+    background-color: #ec567c!important;
+}
+
+.btn-rose:hover{
+    background-color: #D5567C!important;
+}
+
 .logo {
     width: 350px;
 }
@@ -40,4 +48,49 @@ nav ul a:hover {
   padding: 9px!important;
   font-size: 16px!important;
   border-bottom: 1px solid white;
+}
+
+.dropdown-content li>a, .dropdown-content li>span {
+  color: #fff;
+}
+
+input:not([type]):focus:not([readonly]),
+input[type=text]:focus:not([readonly]),
+input[type=password]:focus:not([readonly]),
+input[type=email]:focus:not([readonly]),
+input[type=url]:focus:not([readonly]),
+input[type=time]:focus:not([readonly]),
+input[type=date]:focus:not([readonly]),
+input[type=datetime]:focus:not([readonly]),
+input[type=datetime-local]:focus:not([readonly]),
+input[type=tel]:focus:not([readonly]),
+input[type=number]:focus:not([readonly]),
+input[type=search]:focus:not([readonly]),
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #ec567c;
+  box-shadow: 0 1px 0 0 #ec567c;
+}
+
+input:not([type]):focus:not([readonly]) + label,
+input[type=text]:focus:not([readonly]) + label,
+input[type=password]:focus:not([readonly]) + label,
+input[type=email]:focus:not([readonly]) + label,
+input[type=url]:focus:not([readonly]) + label,
+input[type=time]:focus:not([readonly]) + label,
+input[type=date]:focus:not([readonly]) + label,
+input[type=datetime]:focus:not([readonly]) + label,
+input[type=datetime-local]:focus:not([readonly]) + label,
+input[type=tel]:focus:not([readonly]) + label,
+input[type=number]:focus:not([readonly]) + label,
+input[type=search]:focus:not([readonly]) + label,
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #ec567c;
+}
+
+.input-field .prefix.active {
+    color: #ec567c;
+}
+
+footer a:hover {
+    color: #ec567c;
 }
