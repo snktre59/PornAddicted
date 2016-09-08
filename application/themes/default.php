@@ -41,40 +41,14 @@
                 <ul class="left hide-on-med-and-down">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
+                        <li><a href="<?php echo base_url()."videos/categories"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
+                        <li><a href="<?php echo base_url()."videos/notees"; ?>"><i class="material-icons left">stars</i>Mieux notées</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">videocam</i>Les + vues</a></li>
+                    <?php else: ?>
+                        <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">stars</i>Mieux notées</a></li>
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">videocam</i>Les + vues</a></li>
-                    <?php else: ?>
-                        <li><a href="sass.html"><i class="material-icons left">store</i>Accueil</a></li>
-                        <li><a class='dropdown NOTIFICATIONS' data-beloworigin="true" href='#' data-activates='notifications-dropdown'><i class="material-icons">notifications</i></a></li>
-                            
-                            <ul id="notifications-dropdown" class="dropdown-content" style="white-space: nowrap; position: absolute; top: 128px; left: 1372px; opacity: 1; display: none;">
-                                <li>
-                                    <h5>NOTIFICATIONS <span class="new badge orange">5</span></h5>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a href="#!"><i class="mdi-action-add-shopping-cart"></i> A new order has been placed!</a>
-                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">2 hours ago</time>
-                                </li>
-                                <li>
-                                    <a href="#!"><i class="material-icons left">work</i> Completed the task</a>
-                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">3 days ago</time>
-                                </li>
-                                <li>
-                                    <a href="#!"><i class="mdi-action-settings"></i> Settings updated</a>
-                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">4 days ago</time>
-                                </li>
-                                <li>
-                                    <a href="#!"><i class="mdi-editor-insert-invitation"></i> Director meeting started</a>
-                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">6 days ago</time>
-                                </li>
-                                <li>
-                                    <a href="#!"><i class="mdi-action-trending-up"></i> Generate monthly report</a>
-                                    <time class="media-meta" datetime="2015-06-12T20:50:48+08:00">1 week ago</time>
-                                </li>
-                            </ul>
-                        <li><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons">power_settings_new</i></a></li>
                     <?php endif; ?>
                 </ul>
                 <ul class="right hide-me-on-med-and-down">
@@ -82,8 +56,14 @@
 
                         <!-- Dropdown Structure -->
                         <ul id='login' class='dropdown-content'>
+                        <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                             <li class="grey darken-3"><a href="<?php echo base_url("utilisateurs/connexion"); ?>"><i class="material-icons left">person</i> Se connecter</a></li>
                             <li class="grey darken-3"><a href="<?php echo base_url("utilisateurs/inscription"); ?>"><i class="material-icons left">person_add</i> S'inscrire</a></li>
+                        <?php else: ?>
+                            <li class="grey darken-3"><a href="<?php echo base_url("videos/publier"); ?>"><i class="material-icons left">person</i> Publier une vidéo</a></li>
+                            <li class="grey darken-3"><a href="<?php echo base_url("utilisateurs/profil"); ?>"><i class="material-icons left">person</i> Mon profil</a></li>
+                            <li class="grey darken-3"><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons left">power_settings_new</i> Se déconnecter</a></li>
+                        <?php endif; ?>
                         </ul>
                     <li><div class="nav-wrapper" id="search-bar">
                         <form>
@@ -98,18 +78,19 @@
                 <ul id="slide-out" class="side-nav">
                     <?php if(!$utilisateurCourant->estAuthentifie()): ?>
                         <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
+                        <li><a href="<?php echo base_url()."videos/categories"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">stars</i>Mieux notées</a></li>
                         <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">videocam</i>Les + vues</a></li>
+                        <li><a href="<?php echo base_url("utilisateurs/connexion"); ?>"><i class="material-icons left">person</i> Se connecter</a></li>
+                        <li><a href="<?php echo base_url("utilisateurs/inscription"); ?>"><i class="material-icons left">person_add</i> S'inscrire</a></li>
                     <?php else: ?>
-                        <li><a href="<?php echo base_url("tableau_de_bord"); ?>"><span><i class="material-icons left">trending_down</i><span>Tableau de bord</a></li>
-                        <li><a href="<?php echo base_url()."locataires"; ?>"><i class="material-icons left">perm_identity</i> Locataires</a></li>
-                        <li><a href="<?php echo base_url()."locations"; ?>"><i class="material-icons left">business</i> Locations</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">work</i> Etat des lieux</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">query_builder</i> Rendez-vous</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Interventions</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">textsms</i> Messages</a></li>
-                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">vpn_key</i> Calculatrice</a></li>
+                        <li><a href="<?php echo base_url(); ?>"><i class="material-icons left">store</i>Accueil</a></li>
+                        <li><a href="<?php echo base_url()."videos/categories"; ?>"><i class="material-icons left">dashboard</i>Catégories</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">stars</i>Mieux notées</a></li>
+                        <li><a href="<?php echo base_url()."utilisateurs/connexion"; ?>"><i class="material-icons left">videocam</i>Les + vues</a></li>
+                        <li><a href="<?php echo base_url("videos/publier"); ?>"><i class="material-icons left">person</i> Publier une vidéo</a></li>
+                        <li><a href="<?php echo base_url("utilisateurs/profil"); ?>"><i class="material-icons left">person</i> Mon profil</a></li>
+                        <li><a href="<?php echo base_url("utilisateurs/deconnexion"); ?>"><i class="material-icons left">power_settings_new</i> Se déconnecter</a></li>
                     <?php endif; ?>
                 </ul>
                 <a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons left">reorder</i></a>

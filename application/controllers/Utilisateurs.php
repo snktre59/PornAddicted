@@ -5,6 +5,10 @@ class Utilisateurs extends CI_Controller {
 	
 	public function connexion()
 	{	
+		$utilisateurCourant = $this->session->userdata("utilisateurCourant");
+		
+		if($utilisateurCourant->estAuthentifie()) redirect(base_url());
+
 		// Chargement des bibliothèques
 		$this->load->library('form_validation');
 		
@@ -12,6 +16,8 @@ class Utilisateurs extends CI_Controller {
 		$this->load->model("utilisateurs_model");
 		
 		$this->layout->ajouter_js('utilisateurs/connexion');
+
+		$this->layout->ajouter_css("utilisateurs/connexion");
 	 
 	 	// Définition des règles de champs
 		$this->form_validation->set_rules('ADRESSE_EMAIL', '"Adresse Email"', 'trim|required|valid_email|encode_php_tags');
@@ -86,11 +92,15 @@ class Utilisateurs extends CI_Controller {
 		else
 		{
 			$data["toto"] = "TOTO";
-			$this->layout->blank_view('utilisateurs/connexion', $data);
+			$this->layout->view('utilisateurs/connexion', $data);
 		}
 	}
 
 	public function inscription(){
+
+		$utilisateurCourant = $this->session->userdata("utilisateurCourant");
+
+		if($utilisateurCourant->estAuthentifie()) redirect(base_url());
 		
 		// Chargement des bibliothèques
 		$this->load->library('form_validation');
@@ -106,7 +116,7 @@ class Utilisateurs extends CI_Controller {
 		$this->layout->ajouter_css("utilisateurs/inscription");
 		
 		// Définition du titre de la page
-		$this->layout->set_titre("Loca' Gestion | Inscription");
+		$this->layout->set_titre("Porn Addicted | Inscription");
 		
 		// Définition des règles de champs
 		//$this->form_validation->set_rules('NOM', '"Nom"', 'trim|required|encode_php_tags');
@@ -138,7 +148,7 @@ class Utilisateurs extends CI_Controller {
 			$role = $this->input->post('ROLE');
 			$token_id = md5(microtime(TRUE)*100000);
 			
-			$utilisateurCourant = $this->session->userdata("utilisateurCourant");
+			
 			
 			
 			// L'utilisateur à été ajouté en BDD
