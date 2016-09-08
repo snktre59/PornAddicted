@@ -109,21 +109,23 @@ class Utilisateurs extends CI_Controller {
 		$this->layout->set_titre("Loca' Gestion | Inscription");
 		
 		// Définition des règles de champs
-		$this->form_validation->set_rules('NOM', '"Nom"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('PRENOM', '"Prénom"', 'trim|required|encode_php_tags');
+		//$this->form_validation->set_rules('NOM', '"Nom"', 'trim|required|encode_php_tags');
+		//$this->form_validation->set_rules('PRENOM', '"Prénom"', 'trim|required|encode_php_tags');
+		$this->form_validation->set_rules('PSEUDO', '"Pseudo"', 'trim|required|encode_php_tags|is_unique[utilisateurs.PSEUDO]');
 		$this->form_validation->set_rules('ADRESSE_EMAIL', '"Adresse email"', 'trim|required|valid_email|encode_php_tags|is_unique[utilisateurs.ADRESSE_EMAIL]');
-		$this->form_validation->set_rules('ROLE', '"Rôle"', 'trim|required|encode_php_tags');
+		//$this->form_validation->set_rules('ROLE', '"Rôle"', 'trim|required|encode_php_tags');
 		$this->form_validation->set_rules('MOT_DE_PASSE', '"Mot de passe"', 'trim|required|matches[MOT_DE_PASSE_CONFIRMATION]|encode_php_tags');
 		$this->form_validation->set_rules('MOT_DE_PASSE_CONFIRMATION', '"Mot de passe confirmation"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('NUMERO_DE_TELEPHONE', '"Numéro de téléphone"', 'trim|required|numeric|encode_php_tags');
-		$this->form_validation->set_rules('CODE_POSTAL', '"Code postal"', 'trim|numeric|exact_length[5]|required|encode_php_tags');
-		$this->form_validation->set_rules('VILLE', '"Ville"', 'trim|required|encode_php_tags');
-		$this->form_validation->set_rules('ADRESSE_POSTALE', '"Adresse"', 'trim|required|encode_php_tags');
+		//$this->form_validation->set_rules('NUMERO_DE_TELEPHONE', '"Numéro de téléphone"', 'trim|required|numeric|encode_php_tags');
+		//$this->form_validation->set_rules('CODE_POSTAL', '"Code postal"', 'trim|numeric|exact_length[5]|required|encode_php_tags');
+		//$this->form_validation->set_rules('VILLE', '"Ville"', 'trim|required|encode_php_tags');
+		//$this->form_validation->set_rules('ADRESSE_POSTALE', '"Adresse"', 'trim|required|encode_php_tags');
 		
 		// Si le formulaire est correctement renseigné
 		if($this->form_validation->run())
 		{	               
 			// Récupération des variables postées
+			$pseudo = $this->input->post('PSEUDO');
 			$nom = $this->input->post('NOM');
 			$prenom = $this->input->post('PRENOM');
 			$adresse_postale = $this->input->post('ADRESSE_POSTALE');
@@ -140,7 +142,7 @@ class Utilisateurs extends CI_Controller {
 			
 			
 			// L'utilisateur à été ajouté en BDD
-			if($utilisateurCourant->inscrire($nom, $prenom, $adresse_postale, $code_postal, $ville, $adresse_email, $numero_de_telephone, $adresse_ip_derniere_connexion, $mot_de_passe, $role, $token_id) == TRUE){
+			if($utilisateurCourant->inscrire($pseudo, $nom, $prenom, $adresse_postale, $code_postal, $ville, $adresse_email, $numero_de_telephone, $adresse_ip_derniere_connexion, $mot_de_passe, $role, $token_id) == TRUE){
 				
 				$this->load->library("email_templates");
 				

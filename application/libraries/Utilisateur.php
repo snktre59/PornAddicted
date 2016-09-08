@@ -5,6 +5,7 @@ class Utilisateur extends CI_Controller
 	// Déclaration des variables
     private $CI;
 	private $id;
+    private $pseudo;
 	private $nom;
 	private $prenom;
 	private $mot_de_passe;
@@ -38,6 +39,7 @@ class Utilisateur extends CI_Controller
         $dataUser = $CI->utilisateurs_model->getDataUtilisateurById($id);
         
         $this->id = (int)$dataUser["ID_UTILISATEUR"];
+        $this->pseudo = $dataUser["PSEUDO"];
         $this->nom = $dataUser["NOM"];
         $this->prenom = $dataUser["PRENOM"];
         $this->adresse_postale = $dataUser["ADRESSE_POSTALE"];
@@ -60,13 +62,14 @@ class Utilisateur extends CI_Controller
     /*
      * Fonction d'inscription d'un utilisateur
      */
-    public function inscrire($nom, $prenom, $adresse_postale, $code_postal, $ville, $adresse_email, $numero_de_telephone, $adresse_ip_derniere_connexion, $mot_de_passe, $role, $token_id)
+    public function inscrire($pseudo, $nom, $prenom, $adresse_postale, $code_postal, $ville, $adresse_email, $numero_de_telephone, $adresse_ip_derniere_connexion, $mot_de_passe, $role, $token_id)
 	{
          $CI =& get_instance();
          $CI->load->model("utilisateurs_model");
         // Création du tableau contenant les informations à propos de l'utilisateur
 		$tableau_utilisateur = array(
 			"ID_UTILISATEUR"		            =>		"",
+            "PSEUDO"                            =>      $pseudo,
 			"NOM"		                        =>		$nom,
 			"PRENOM"	                        =>		$prenom,
 			"ADRESSE_POSTALE"		            =>		$adresse_postale,
@@ -118,6 +121,22 @@ class Utilisateur extends CI_Controller
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPseudo()
+    {
+        return $this->pseudo;
+    }
+
+    /**
+     * @param mixed $nom
+     */
+    public function setPseudo($pseudo)
+    {
+        $this->nom = $pseudo;
     }
 
     /**
